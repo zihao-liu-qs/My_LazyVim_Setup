@@ -1,5 +1,5 @@
 return {
-  "olimorris/onedarkpro.nvim",
+  "zihao-liu-qs/onedarkpro.nvim",
   priority = 1000,
   config = function()
     require("onedarkpro").setup({
@@ -7,7 +7,7 @@ return {
         transparency = true,
       },
       highlights = {
-        -- if in dark mode, use this, otherwise comment out the line
+        -- if in dark mode, use this, otherwise comment out this line
         Cursor = { fg = "#FFFFFF", bg = "#FFFFFF" },
       },
     })

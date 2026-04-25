@@ -1,6 +1,5 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-require("smear_cursor").enabled = true
 
 -- lsp config
 vim.lsp.enable("pyright")
@@ -10,8 +9,8 @@ vim.lsp.enable("cssls")
 
 --select colorscheme
 --use onedark in dark mode or onelight in light mode
-vim.cmd.colorscheme("onedark")
 -- vim.cmd.colorscheme("onelight")
+vim.cmd.colorscheme("onedark")
 
 --keyboard map configuration here
 vim.keymap.set("n", "<F5>", ":RunCode<CR>", { noremap = true, silent = false })
@@ -40,12 +39,12 @@ vim.keymap.set("n", "<F6>", function()
 end, { noremap = true, silent = true, desc = "Open HTML in browser" })
 
 vim.o.cursorline = true
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "#44475a" })
 
-vim.opt.statusline = "%f"
+-- hide original status line at the bottom
+vim.opt.laststatus = 0
 
 -- show filename ont the top of each buffer
-vim.o.winbar = "%t"
+vim.o.winbar = "%f"
 
 -- set HJKL to move cursor
 local map = vim.keymap.set
@@ -79,3 +78,13 @@ vim.keymap.set("n", "gv", function()
   vim.cmd("vsplit")
   vim.lsp.buf.definition()
 end, { desc = "Go to definition in vertical split" })
+
+-- adjust panel size
+vim.keymap.set("n", "<C-[>", "<cmd>vertical resize -5<cr>", {
+  desc = "Shrink panel",
+  silent = true,
+})
+vim.keymap.set("n", "<C->>", "<cmd>vertical resize +5<cr>", {
+  desc = "Expand panel",
+  silent = true,
+})

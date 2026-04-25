@@ -1,9 +1,13 @@
 -- <leader>e to use auto-close floating(dropdown) tree
 -- <leader>E to use sidebar tree not automatically close
+-- brew install fd to enable search
 return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
+    image = {
+      enabled = true,
+    },
     dashboard = { enabled = false },
     explorer = {},
     picker = {
